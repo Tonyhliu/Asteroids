@@ -28,13 +28,8 @@ Ship.prototype.fireBullet = function () {
   this.game.bullets.push(bullet);
 };
 
-<<<<<<< HEAD
 Ship.RADIUS = 15;
 Ship.COLOR = "white";
-=======
-Ship.RADIUS = 20;
-Ship.COLOR = "#FF0000";
->>>>>>> origin/master
 
 
 module.exports = Ship;

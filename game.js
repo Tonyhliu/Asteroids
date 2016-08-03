@@ -3,15 +3,9 @@ const Bullet = require("./bullet.js");
 const Astroid = require("./astroid.js");
 
 function Game (bgImg) {
-<<<<<<< HEAD
   this.asteroids = [];
   this.bullets = [];
   this.asteroidsToRemove = [];
-=======
-  this.astroids = [];
-  this.bullets = [];
-  this.astroidsToRemove = [];
->>>>>>> origin/master
   this.bulletsToRemove = [];
   this.addAsteroids();
   this.ship = new Ship({"pos": this.randomPosition(), "game":this});
@@ -21,11 +15,7 @@ function Game (bgImg) {
 Game.prototype.addAsteroids = function () {
   for(let i = 0; i < Game.NUM_ASTEROIDS; i++){
     const newAst = new Astroid({"pos":this.randomPosition(), "game":this});
-<<<<<<< HEAD
     this.asteroids.push(newAst);
-=======
-    this.astroids.push(newAst);
->>>>>>> origin/master
   }
 };
 
@@ -76,21 +66,14 @@ Game.prototype.checkCollisons = function () {
 };
 
 Game.prototype.removeObjects = function () {
-<<<<<<< HEAD
   this.asteroidsToRemove.forEach( asteroid => {
     const i = this.asteroids.indexOf(asteroid);
     this.asteroids.splice(i, 1);
-=======
-  this.astroidsToRemove.forEach( asteroid => {
-    const i = this.astroids.indexOf(asteroid);
-    this.astroids.splice(i, 1);
->>>>>>> origin/master
   });
   this.bulletsToRemove.forEach( bullet => {
     const i = this.bullets.indexOf(bullet);
     this.bullets.splice(i, 1);
   });
-<<<<<<< HEAD
   this.asteroidsToRemove = [];
   this.bulletsToRemove = [];
 
@@ -98,10 +81,6 @@ Game.prototype.removeObjects = function () {
     alert("Game Over!");
     document.location.reload();
   }
-=======
-  this.astroidsToRemove = [];
-  this.bulletsToRemove = [];
->>>>>>> origin/master
 };
 
 Game.prototype.step = function (delta) {
@@ -113,20 +92,12 @@ Game.prototype.remove = function (object) {
   if (object instanceof Bullet){
     this.bulletsToRemove.push(object);
   }else if (object instanceof Astroid){
-<<<<<<< HEAD
     this.asteroidsToRemove.push(object);
-=======
-    this.astroidsToRemove.push(object);
->>>>>>> origin/master
   }
 };
 
 Game.prototype.allObjects = function() {
-<<<<<<< HEAD
   return this.asteroids.concat(this.bullets).concat([this.ship]);
-=======
-  return this.astroids.concat(this.bullets).concat([this.ship]);
->>>>>>> origin/master
 };
 
 Game.prototype.isOutOfBounds = function (pos) {
@@ -136,12 +107,7 @@ Game.prototype.isOutOfBounds = function (pos) {
 
 
 Game.DIM_X = 1200;
-<<<<<<< HEAD
 Game.DIM_Y = 600;
 Game.NUM_ASTEROIDS = 20;
-=======
-Game.DIM_Y = 900;
-Game.NUM_ASTEROIDS = 25;
->>>>>>> origin/master
 
 module.exports = Game;
