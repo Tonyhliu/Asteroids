@@ -66,6 +66,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	const Ship = __webpack_require__(2);
+<<<<<<< HEAD
 	const Bullet = __webpack_require__(5);
 	const Astroid = __webpack_require__(6);
 	
@@ -73,6 +74,15 @@
 	  this.asteroids = [];
 	  this.bullets = [];
 	  this.asteroidsToRemove = [];
+=======
+	const Bullet = __webpack_require__(4);
+	const Astroid = __webpack_require__(5);
+	
+	function Game (bgImg) {
+	  this.astroids = [];
+	  this.bullets = [];
+	  this.astroidsToRemove = [];
+>>>>>>> origin/master
 	  this.bulletsToRemove = [];
 	  this.addAsteroids();
 	  this.ship = new Ship({"pos": this.randomPosition(), "game":this});
@@ -82,7 +92,11 @@
 	Game.prototype.addAsteroids = function () {
 	  for(let i = 0; i < Game.NUM_ASTEROIDS; i++){
 	    const newAst = new Astroid({"pos":this.randomPosition(), "game":this});
+<<<<<<< HEAD
 	    this.asteroids.push(newAst);
+=======
+	    this.astroids.push(newAst);
+>>>>>>> origin/master
 	  }
 	};
 	
@@ -133,14 +147,21 @@
 	};
 	
 	Game.prototype.removeObjects = function () {
+<<<<<<< HEAD
 	  this.asteroidsToRemove.forEach( asteroid => {
 	    const i = this.asteroids.indexOf(asteroid);
 	    this.asteroids.splice(i, 1);
+=======
+	  this.astroidsToRemove.forEach( asteroid => {
+	    const i = this.astroids.indexOf(asteroid);
+	    this.astroids.splice(i, 1);
+>>>>>>> origin/master
 	  });
 	  this.bulletsToRemove.forEach( bullet => {
 	    const i = this.bullets.indexOf(bullet);
 	    this.bullets.splice(i, 1);
 	  });
+<<<<<<< HEAD
 	  this.asteroidsToRemove = [];
 	  this.bulletsToRemove = [];
 	
@@ -148,6 +169,10 @@
 	    alert("Game Over!");
 	    document.location.reload();
 	  }
+=======
+	  this.astroidsToRemove = [];
+	  this.bulletsToRemove = [];
+>>>>>>> origin/master
 	};
 	
 	Game.prototype.step = function (delta) {
@@ -159,12 +184,20 @@
 	  if (object instanceof Bullet){
 	    this.bulletsToRemove.push(object);
 	  }else if (object instanceof Astroid){
+<<<<<<< HEAD
 	    this.asteroidsToRemove.push(object);
+=======
+	    this.astroidsToRemove.push(object);
+>>>>>>> origin/master
 	  }
 	};
 	
 	Game.prototype.allObjects = function() {
+<<<<<<< HEAD
 	  return this.asteroids.concat(this.bullets).concat([this.ship]);
+=======
+	  return this.astroids.concat(this.bullets).concat([this.ship]);
+>>>>>>> origin/master
 	};
 	
 	Game.prototype.isOutOfBounds = function (pos) {
@@ -174,8 +207,13 @@
 	
 	
 	Game.DIM_X = 1200;
+<<<<<<< HEAD
 	Game.DIM_Y = 600;
 	Game.NUM_ASTEROIDS = 20;
+=======
+	Game.DIM_Y = 900;
+	Game.NUM_ASTEROIDS = 25;
+>>>>>>> origin/master
 	
 	module.exports = Game;
 
@@ -185,8 +223,13 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	const MovingObject = __webpack_require__(3);
+<<<<<<< HEAD
 	const Bullet = __webpack_require__(5);
 	const Util = __webpack_require__(4);
+=======
+	const Bullet = __webpack_require__(4);
+	const Util = __webpack_require__(6);
+>>>>>>> origin/master
 	
 	function Ship (options) {
 	  options['radius'] = Ship.RADIUS;
@@ -214,8 +257,13 @@
 	  this.game.bullets.push(bullet);
 	};
 	
+<<<<<<< HEAD
 	Ship.RADIUS = 15;
 	Ship.COLOR = "white";
+=======
+	Ship.RADIUS = 20;
+	Ship.COLOR = "#FF0000";
+>>>>>>> origin/master
 	
 	
 	module.exports = Ship;
@@ -225,7 +273,11 @@
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 	const Util = __webpack_require__(4)
+=======
+	const Util = __webpack_require__(6)
+>>>>>>> origin/master
 	
 	function MovingObject (options) {
 	  this.game = options["game"];
@@ -277,6 +329,7 @@
 
 /***/ },
 /* 4 */
+<<<<<<< HEAD
 /***/ function(module, exports) {
 
 	const Util = {};
@@ -315,6 +368,12 @@
 
 	const MovingObject = __webpack_require__(3);
 	const Util = __webpack_require__(4);
+=======
+/***/ function(module, exports, __webpack_require__) {
+
+	const MovingObject = __webpack_require__(3);
+	const Util = __webpack_require__(6);
+>>>>>>> origin/master
 	
 	function Bullet (options) {
 	  options['color'] = Bullet.COLOR;
@@ -330,13 +389,18 @@
 	
 	Bullet.prototype.isWrappable = false;
 	
+<<<<<<< HEAD
 	Bullet.COLOR = "#00EE00";
+=======
+	Bullet.COLOR = "#0000FF";
+>>>>>>> origin/master
 	Bullet.RADIUS = 5;
 	
 	module.exports = Bullet;
 
 
 /***/ },
+<<<<<<< HEAD
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -344,6 +408,15 @@
 	const Util = __webpack_require__(4);
 	const Ship = __webpack_require__(2);
 	const Bullet = __webpack_require__(5);
+=======
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	const MovingObject = __webpack_require__(3);
+	const Util = __webpack_require__(6);
+	const Ship = __webpack_require__(2);
+	const Bullet = __webpack_require__(4);
+>>>>>>> origin/master
 	
 	function Astroid(options) {
 	  options['color'] = Astroid.COLOR;
@@ -355,7 +428,11 @@
 	MovingObject.prototype.collideWith = function (otherObject) {
 	  if (otherObject instanceof Ship){
 	    otherObject.relocate();
+<<<<<<< HEAD
 	  } else if (otherObject instanceof Bullet){
+=======
+	  }else if (otherObject instanceof Bullet){
+>>>>>>> origin/master
 	    this.game.remove(this);
 	  }
 	};
@@ -363,13 +440,54 @@
 	Util.inherits(Astroid, MovingObject);
 	
 	Astroid.COLOR = "#777777";
+<<<<<<< HEAD
 	Astroid.RADIUS = 20;
+=======
+	Astroid.RADIUS = 30;
+>>>>>>> origin/master
 	Astroid.SPEED = 3;
 	
 	module.exports = Astroid;
 
 
 /***/ },
+<<<<<<< HEAD
+=======
+/* 6 */
+/***/ function(module, exports) {
+
+	const Util = {};
+	
+	Util.inherits = function (ChildClass, ParentClass){
+	  function Surrogate () {}
+	  Surrogate.prototype = ParentClass.prototype;
+	  ChildClass.prototype = new Surrogate();
+	  ChildClass.prototype.constructor = ChildClass;
+	};
+	
+	Util.randomVec = function(length) {
+	  const x = Math.random() * length;
+	  const y = Math.sqrt((length*length) - (x*x));
+	  return [x, y];
+	};
+	
+	Util.distance = function (vect1, vect2) {
+	  return Math.sqrt(Math.pow((vect1[0] - vect2[0]), 2) + Math.pow((vect1[1] - vect2[1]), 2));
+	};
+	
+	Util.scaleVec = function (vect, length) {
+	  const scaled = vect.slice();
+	  const scalar = length / Util.distance(vect, [0, 0]);
+	  scaled[0] *= scalar;
+	  scaled[1] *= scalar;
+	  return scaled;
+	};
+	
+	module.exports = Util;
+
+
+/***/ },
+>>>>>>> origin/master
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 

@@ -13,7 +13,11 @@ function Astroid(options) {
 MovingObject.prototype.collideWith = function (otherObject) {
   if (otherObject instanceof Ship){
     otherObject.relocate();
+<<<<<<< HEAD
   } else if (otherObject instanceof Bullet){
+=======
+  }else if (otherObject instanceof Bullet){
+>>>>>>> origin/master
     this.game.remove(this);
   }
 };
@@ -21,7 +25,11 @@ MovingObject.prototype.collideWith = function (otherObject) {
 Util.inherits(Astroid, MovingObject);
 
 Astroid.COLOR = "#777777";
+<<<<<<< HEAD
 Astroid.RADIUS = 20;
+=======
+Astroid.RADIUS = 30;
+>>>>>>> origin/master
 Astroid.SPEED = 3;
 
 module.exports = Astroid;
