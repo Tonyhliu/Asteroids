@@ -55,7 +55,7 @@
 	  bgImg.onload = function () {
 	    const game = new Game(bgImg);
 	    const gv = new GameView(game, ctx);
-	    gv.start();
+	    gv.renderStart();
 	  };
 	  bgImg.src = 'myImage.png';
 	});
@@ -381,7 +381,16 @@
 	  this.lastUpdateTime = 0;
 	}
 	
+	GameView.prototype.renderStart = function () {
+	  $('.new').html("Welcome to ASTEROIDS. <br> Use the ASWD keys to move & spacebar to shoot! <br> <br> Click to start");
+	  $('.new').on('click', this.start.bind(this));
+	};
+	
+	
 	GameView.prototype.start = function () {
+	  $(".new").html("");
+	  $(".new").css("padding", 0);
+	
 	  this.bindKeyHandlers();
 	  const animateCallback = (time) => {
 	    const timeElapsed = time - this.lastUpdateTime;

@@ -5,3 +5,34 @@
   padding-left: 0;
   padding-right: 0;
 }
+
+.new {
+ display: block;
+ font-size: 28px;
+ margin-top: -410px;
+ background-color: rgba(101, 86, 86, 0.27);
+ color: black;
+ border-radius: 7px;
+ width: 500px;
+ padding: 20px;
+ margin-left: auto;
+ margin-right: auto;
+ cursor: pointer;
+}
+
+.retry, .new {
+ position: relative;
+ text-align: center;
+ z-index: 5;
+ background: rgba(101, 34, 101, 0.63);
+ font-family: 'Open Sans', sans-serif;
+}
+
+.retry {
+ display: block;
+ background-color: rgba(101, 86, 86, 0.27);
+ margin-top: 102px;
+ font-size: 60px;
+ color: aliceblue;
+ cursor: pointer;
+}

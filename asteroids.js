@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   bgImg.onload = function () {
     const game = new Game(bgImg);
     const gv = new GameView(game, ctx);
-    gv.start();
+    gv.renderStart();
   };
   bgImg.src = 'myImage.png';
 });
