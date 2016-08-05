@@ -76,16 +76,24 @@ Game.prototype.removeObjects = function () {
   });
   this.asteroidsToRemove = [];
   this.bulletsToRemove = [];
+};
 
-  if (this.asteroids.length === 0) {
-    alert("Game Over!");
-    document.location.reload();
-  }
+Game.prototype.renderGameOver = function () {
+  $('.retry').html("You win! Try again?");
+  $('.retry').on('click', this.reloadPage.bind(this));
+};
+
+Game.prototype.reloadPage = function () {
+  document.location.reload();
 };
 
 Game.prototype.step = function (delta) {
   this.moveObjects(delta);
   this.checkCollisons();
+
+  if (this.asteroids.length <= 0) {
+    this.renderGameOver();
+  }
 };
 
 Game.prototype.remove = function (object) {
