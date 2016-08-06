@@ -8,6 +8,12 @@ function MovingObject (options) {
   this.color = options["color"];
 }
 
+MovingObject.prototype.drawShip = function(ctx) {
+  const shipImg = new Image();
+  shipImg.src = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1470523570/spaceship_pxguzq.png";
+  ctx.drawImage(shipImg, this.pos[0], this.pos[1], 40, 40);
+};
+
 MovingObject.prototype.draw = function (ctx) {
   ctx.fillStyle = this.color;
   ctx.beginPath();

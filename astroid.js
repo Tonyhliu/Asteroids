@@ -20,7 +20,7 @@ MovingObject.prototype.collideWith = function (otherObject) {
 
 Util.inherits(Astroid, MovingObject);
 
-Astroid.COLOR = "#777777";
+Astroid.COLOR = "orange";
 Astroid.RADIUS = 20;
 Astroid.SPEED = 3;
 

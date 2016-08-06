@@ -15,7 +15,7 @@ Bullet.prototype.collideWith = function (otherObject) {
 
 Bullet.prototype.isWrappable = false;
 
-Bullet.COLOR = "#00EE00";
+Bullet.COLOR = "white";
 Bullet.RADIUS = 5;
 
 module.exports = Bullet;

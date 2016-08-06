@@ -11,5 +11,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
     const gv = new GameView(game, ctx);
     gv.renderStart();
   };
-  bgImg.src = 'myImage.png';
+  bgImg.src = 'http://res.cloudinary.com/dcbb8bnvk/image/upload/v1470525204/space_lorr2y.png';
 });

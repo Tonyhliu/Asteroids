@@ -57,7 +57,7 @@
 	    const gv = new GameView(game, ctx);
 	    gv.renderStart();
 	  };
-	  bgImg.src = 'myImage.png';
+	  bgImg.src = 'http://res.cloudinary.com/dcbb8bnvk/image/upload/v1470525204/space_lorr2y.png';
 	});
 
 
@@ -75,7 +75,7 @@
 	  this.asteroidsToRemove = [];
 	  this.bulletsToRemove = [];
 	  this.addAsteroids();
-	  this.ship = new Ship({"pos": this.randomPosition(), "game":this});
+	  this.ship = new Ship({"pos": this.randomPosition(), "game": this});
 	  this.bgImg = bgImg;
 	}
 	
@@ -93,7 +93,14 @@
 	Game.prototype.draw = function (ctx) {
 	  ctx.clearRect(0, 0, Game.DIM_X, Game.DIM_Y);
 	  ctx.drawImage(this.bgImg, 0, 0);
-	  this.allObjects().forEach(obj => obj.draw(ctx));
+	  // this.allObjects().forEach(obj => obj.draw(ctx));
+	  this.allObjects().forEach(obj => {
+	    if (obj === this.ship) {
+	      obj.drawShip(ctx);
+	    } else {
+	      obj.draw(ctx);
+	    }
+	  });
 	};
 	
 	Game.prototype.moveObjects = function(delta) {
@@ -216,13 +223,14 @@
 	};
 	
 	Ship.prototype.fireBullet = function () {
-	  const bulletPos = this.pos.slice();
+	  const bullets = this.pos.slice();
+	  const bulletPos = [this.pos[0] + 15, this.pos[1]];
 	  const bulletVel = Util.scaleVec(this.vel, 10);
-	  const bullet = new Bullet({"pos":bulletPos, "vel":bulletVel, "game":this.game});
+	  const bullet = new Bullet({"pos": bulletPos, "vel": bulletVel, "game":this.game});
 	  this.game.bullets.push(bullet);
 	};
 	
-	Ship.RADIUS = 15;
+	Ship.RADIUS = 20;
 	Ship.COLOR = "white";
 	
 	
@@ -242,6 +250,12 @@
 	  this.radius = options["radius"];
 	  this.color = options["color"];
 	}
+	
+	MovingObject.prototype.drawShip = function(ctx) {
+	  const shipImg = new Image();
+	  shipImg.src = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1470523570/spaceship_pxguzq.png";
+	  ctx.drawImage(shipImg, this.pos[0], this.pos[1], 40, 40);
+	};
 	
 	MovingObject.prototype.draw = function (ctx) {
 	  ctx.fillStyle = this.color;
@@ -338,7 +352,7 @@
 	
 	Bullet.prototype.isWrappable = false;
 	
-	Bullet.COLOR = "#00EE00";
+	Bullet.COLOR = "white";
 	Bullet.RADIUS = 5;
 	
 	module.exports = Bullet;
@@ -370,7 +384,7 @@
 	
 	Util.inherits(Astroid, MovingObject);
 	
-	Astroid.COLOR = "#777777";
+	Astroid.COLOR = "orange";
 	Astroid.RADIUS = 20;
 	Astroid.SPEED = 3;
 	

@@ -22,13 +22,14 @@ Ship.prototype.power = function (impulse) {
 };
 
 Ship.prototype.fireBullet = function () {
-  const bulletPos = this.pos.slice();
+  const bullets = this.pos.slice();
+  const bulletPos = [this.pos[0] + 15, this.pos[1]];
   const bulletVel = Util.scaleVec(this.vel, 10);
-  const bullet = new Bullet({"pos":bulletPos, "vel":bulletVel, "game":this.game});
+  const bullet = new Bullet({"pos": bulletPos, "vel": bulletVel, "game":this.game});
   this.game.bullets.push(bullet);
 };
 
-Ship.RADIUS = 15;
+Ship.RADIUS = 20;
 Ship.COLOR = "white";
 
 

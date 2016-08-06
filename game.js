@@ -8,7 +8,7 @@ function Game (bgImg) {
   this.asteroidsToRemove = [];
   this.bulletsToRemove = [];
   this.addAsteroids();
-  this.ship = new Ship({"pos": this.randomPosition(), "game":this});
+  this.ship = new Ship({"pos": this.randomPosition(), "game": this});
   this.bgImg = bgImg;
 }
 
@@ -26,7 +26,14 @@ Game.prototype.randomPosition = function () {
 Game.prototype.draw = function (ctx) {
   ctx.clearRect(0, 0, Game.DIM_X, Game.DIM_Y);
   ctx.drawImage(this.bgImg, 0, 0);
-  this.allObjects().forEach(obj => obj.draw(ctx));
+  // this.allObjects().forEach(obj => obj.draw(ctx));
+  this.allObjects().forEach(obj => {
+    if (obj === this.ship) {
+      obj.drawShip(ctx);
+    } else {
+      obj.draw(ctx);
+    }
+  });
 };
 
 Game.prototype.moveObjects = function(delta) {
