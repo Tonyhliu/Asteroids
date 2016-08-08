@@ -123,6 +123,6 @@ Game.prototype.isOutOfBounds = function (pos) {
 
 Game.DIM_X = 1200;
 Game.DIM_Y = 600;
-Game.NUM_ASTEROIDS = 20;
+Game.NUM_ASTEROIDS = 17;
 
 module.exports = Game;
