@@ -12,6 +12,16 @@ MovingObject.prototype.drawShip = function(ctx) {
   const shipImg = new Image();
   shipImg.src = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1470523570/spaceship_pxguzq.png";
   ctx.drawImage(shipImg, this.pos[0], this.pos[1], 40, 40);
+  ctx.beginPath();
+
+  ctx.arc(
+    this.pos[0],
+    this.pos[1],
+    20,
+    0,
+    2 * Math.PI,
+    false
+  );
 };
 
 MovingObject.prototype.draw = function (ctx) {

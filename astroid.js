@@ -21,7 +21,7 @@ MovingObject.prototype.collideWith = function (otherObject) {
 Util.inherits(Astroid, MovingObject);
 
 Astroid.COLOR = "orange";
-Astroid.RADIUS = 20;
+Astroid.RADIUS = 18;
 Astroid.SPEED = 3;
 
 module.exports = Astroid;
