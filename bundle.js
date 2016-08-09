@@ -254,7 +254,7 @@
 	MovingObject.prototype.drawShip = function(ctx) {
 	  const shipImg = new Image();
 	  shipImg.src = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1470523570/spaceship_pxguzq.png";
-	  ctx.drawImage(shipImg, this.pos[0], this.pos[1], 40, 40);
+	  ctx.drawImage(shipImg, this.pos[0] - 10, this.pos[1], 40, 40);
 	  ctx.beginPath();
 	
 	  ctx.arc(
@@ -395,7 +395,7 @@
 	Util.inherits(Astroid, MovingObject);
 	
 	Astroid.COLOR = "orange";
-	Astroid.RADIUS = 18;
+	Astroid.RADIUS = 15;
 	Astroid.SPEED = 3;
 	
 	module.exports = Astroid;
