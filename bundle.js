@@ -224,7 +224,7 @@
 	
 	Ship.prototype.fireBullet = function () {
 	  const bullets = this.pos.slice();
-	  const bulletPos = [this.pos[0] + 15, this.pos[1]];
+	  const bulletPos = [this.pos[0], this.pos[1]];
 	  const bulletVel = Util.scaleVec(this.vel, 10);
 	  const bullet = new Bullet({"pos": bulletPos, "vel": bulletVel, "game":this.game});
 	  this.game.bullets.push(bullet);
@@ -254,17 +254,7 @@
 	MovingObject.prototype.drawShip = function(ctx) {
 	  const shipImg = new Image();
 	  shipImg.src = "http://res.cloudinary.com/dcbb8bnvk/image/upload/v1470523570/spaceship_pxguzq.png";
-	  ctx.drawImage(shipImg, this.pos[0] - 10, this.pos[1], 40, 40);
-	  ctx.beginPath();
-	
-	  ctx.arc(
-	    this.pos[0],
-	    this.pos[1],
-	    20,
-	    0,
-	    2 * Math.PI,
-	    false
-	  );
+	  ctx.drawImage(shipImg, this.pos[0] - 10, this.pos[1] - 10, 40, 40);
 	};
 	
 	MovingObject.prototype.draw = function (ctx) {

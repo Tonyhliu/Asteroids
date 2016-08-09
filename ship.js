@@ -23,7 +23,7 @@ Ship.prototype.power = function (impulse) {
 
 Ship.prototype.fireBullet = function () {
   const bullets = this.pos.slice();
-  const bulletPos = [this.pos[0] + 15, this.pos[1]];
+  const bulletPos = [this.pos[0], this.pos[1]];
   const bulletVel = Util.scaleVec(this.vel, 10);
   const bullet = new Bullet({"pos": bulletPos, "vel": bulletVel, "game":this.game});
   this.game.bullets.push(bullet);
